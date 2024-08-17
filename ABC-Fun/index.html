@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html manifest="main.manifest">
+<head>
+	<meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+    <meta name="apple-touch-fullscreen" content="yes" />
+    <link rel="apple-touch-startup-image" href="letterA.png" />
+    <link rel="apple-touch-icon" href="letterA.png" /> 
+    <link rel="stylesheet" type="text/css" href="style.css" media="screen" />
+
+    <title>ABC Fun</title>
+</head>
+<body>
+        <h1>ABC Fun!</h1>
+
+<select style="font-size: 20px;" id="language-select">
+<option value="select">🌐</option>
+<option value="en">🇬🇧 English</option>
+<option value="fr">🇫🇷 Français</option>
+<option value="es">🇪🇸 Español</option>
+<option value="de">🇩🇪 Deutsch</option> <!-- German -->
+
+</select>
+    <div id="loading"></div>
+
+    <div class="container" id="buttonContainer">
+    </div>
+        <script src="app.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,88 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: white;
+    text-align: center;
+    color: black; /* Set text color to black */
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    color: black;
+    
+}
+
+h1 {
+    font-size: 45px;
+    font-weight: bold;
+}
+
+button {
+    border: none;
+    color: black;
+    padding: 15px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+    margin: 10px;
+    cursor: pointer;
+    background-color: white;
+
+*}
+
+.letter-row {
+    display: flex;
+    justify-content: center;
+    margin: 10px 0;
+}
+
+img {
+    width: 50px; /* Adjust size as needed */
+    height: auto;
+}
+
+.styled-text {
+    font-family: 'Open Sans', sans-serif; /* Custom font */
+    font-size: 70px; /* Font size */
+    font-weight: bold; /* Bold text */
+    color: red; /* Text color */
+    text-shadow: 0 0 5px black; /* Shadow effect */
+}
+
+        .styled-button {
+            font-family: 'Open Sans', sans-serif; /* Use Open Sans font */
+            font-size: 70px; /* Font size */
+            /*font-weight: bold;*/
+            color: red; /* Text color */
+            text-shadow: 0 0 5px black; /* Shadow effect */
+            background: none; /* No background */
+            border: none; /* No border */
+            cursor: pointer; /* Pointer cursor */
+            margin: 10px; /* Margin between buttons */
+            transition: transform 0.3s ease-in-out; /* Smoother animation */
+        }
+
+        .move-up {
+            transform: translateY(-10px); /* Move up */
+            margin: 5px;
+            font-size: 80px;
+        }
+
+
+        #loading {
+            display: none;
+            width: 40px;
+            height: 40px;
+            border: 5px solid #f3f3f3; /* Light grey */
+            border-top: 5px solid #3498db; /* Blue */
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 20px auto; /* Center the spinner */
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
