@@ -1,4 +1,4 @@
-# Bienvenue au tariq-c-dev.github.io
+#tariq-c-dev.github.io
 
 الاختصارات:
 
