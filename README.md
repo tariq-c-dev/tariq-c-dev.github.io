@@ -6,4 +6,4 @@
 
 [Repos](https://github.com/tariq-c-dev?tab=repositories)
 
-[ABC iOS App](https://testflight.apple.com/join/kaZCEkkj)
+[ABC iPhone](https://testflight.apple.com/join/kaZCEkkj)
