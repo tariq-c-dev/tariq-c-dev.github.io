@@ -1,4 +1,8 @@
 const languageSelect = document.getElementById('language-select');
+let currentLanguage = (navigator.language || navigator.userLanguage).slice(0, 2);
+console.log(currentLanguage);
+const loadingIcon = document.getElementById('loading');
+fois=0
 
 function activerUrdu() {
 
@@ -75,7 +79,7 @@ console.log(event.target.id);
 const button = document.getElementById(event.target.id);
 
 const utterance = new SpeechSynthesisUtterance(event.target.id);
-utterance.lang = 'ar'; 
+utterance.lang = currentLanguage; 
 button.classList.add('move-up');
 setTimeout(() => {
     button.classList.remove('move-up');
@@ -178,10 +182,7 @@ let de = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 
 let ar = [ "خ", "ح", "ج", "ث", "ت", "ب", "ا", "ص", "ش", "س", "ز", "ر", "ذ", "د", "ق", "ف", "غ", "ع", "ظ", "ط", "ض", "ي", "و", "ه", "ن", "م", "ل", "ك", ];
 let vn = ['A', 'À', 'Á', 'Ả', 'Ã', 'Ạ','Â', 'Ầ', 'Ấ', 'Ẩ', 'Ẫ', 'Ậ','Ê', 'Ề', 'Ế', 'Ể', 'Ễ', 'Ệ','I', 'Ì', 'Í', 'Ỉ', 'Ĩ', 'Ị','O', 'Ò', 'Ó', 'Ỏ', 'Õ', 'Ọ','Ô', 'Ồ', 'Ố', 'Ổ', 'Ỗ', 'Ộ','Ơ', 'Ờ', 'Ớ', 'Ở', 'Ỡ', 'Ợ','U', 'Ù', 'Ú', 'Ủ', 'Ũ', 'Ụ','Ư', 'Ừ', 'Ứ', 'Ử', 'Ữ', 'Ự','Y', 'Ỳ', 'Ý', 'Ỷ', 'Ỹ', 'Ỵ'];
 
-let currentLanguage = (navigator.language || navigator.userLanguage).slice(0, 2);
-console.log(currentLanguage);
-const loadingIcon = document.getElementById('loading');
-fois=0
+
 
 function decideLang() {
 //window.removeEventListener("orientationchange", checkOrientation);
