@@ -1,6 +1,4 @@
 const languageSelect = document.getElementById('language-select');
-let currentLanguage = (navigator.language || navigator.userLanguage).slice(0, 2);
-console.log(currentLanguage);
 const loadingIcon = document.getElementById('loading');
 fois=0
 
@@ -209,6 +207,9 @@ alphabet=en;
 
 }
 decideLang()
+
+let currentLanguage = (navigator.language || navigator.userLanguage).slice(0, 2);
+console.log(currentLanguage);
 
 languageSelect.addEventListener('change', () => {
 if (languageSelect.value != "select") {
