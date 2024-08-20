@@ -5,7 +5,7 @@ let currentLanguage = (navigator.language || navigator.userLanguage).slice(0, 2)
 console.log(currentLanguage);
 
 function activerUrdu() {
-
+currentLanguage = "ur"
 	const contentToCopy = `
         <div class="letter-row">
             <button class="styled-button" id="پ">پ</button>
@@ -215,13 +215,14 @@ decideLang()
 languageSelect.addEventListener('change', () => {
 if (languageSelect.value != "select") {
 	currentLanguage = languageSelect.value;
-
+console.log(currentLanguage)
 if (languageSelect.value == "ar" || languageSelect.value == "ur") {
     console.log("activation du mode de droit à gauche");
 if (languageSelect.value == "ar") {
     activerLarabe();
 } else {
 	activerUrdu();
+	console.log(currentLanguage)
 }
     const buttons = document.querySelectorAll('.container button');
 buttons.forEach(button => {
