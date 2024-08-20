@@ -1,6 +1,8 @@
 const languageSelect = document.getElementById('language-select');
 const loadingIcon = document.getElementById('loading');
 fois=0
+let currentLanguage = (navigator.language || navigator.userLanguage).slice(0, 2);
+console.log(currentLanguage);
 
 function activerUrdu() {
 
@@ -208,8 +210,7 @@ alphabet=en;
 }
 decideLang()
 
-let currentLanguage = (navigator.language || navigator.userLanguage).slice(0, 2);
-console.log(currentLanguage);
+
 
 languageSelect.addEventListener('change', () => {
 if (languageSelect.value != "select") {
