@@ -214,7 +214,7 @@ languageSelect.addEventListener('change', () => {
 if (languageSelect.value != "select") {
 	currentLanguage = languageSelect.value;
 
-    if (currentLanguage == "ar"|| currentlanguage == "ur") {
+if (currentLanguage == "ar" || currentlanguage == "ur") {
     console.log("activation du mode de droit à gauche");
 if (currentLanguage == "ar") {
     activerLarabe();
