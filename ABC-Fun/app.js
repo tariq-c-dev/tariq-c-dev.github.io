@@ -184,7 +184,7 @@ let vn = ['A', 'À', 'Á', 'Ả', 'Ã', 'Ạ','Â', 'Ầ', 'Ấ', 'Ẩ', 'Ẫ', 
 
 function changeTitle(newTitle) {
   document.title = newTitle;
-document.header = newTitle;
+document.querySelector('h1').textContent = newTitle;
 }
 
 
@@ -194,19 +194,19 @@ fois=0
 console.log(fois)
 if (currentLanguage == "en") {
 alphabet=en;
-changeTitle('ABC Fun')
+changeTitle('ABC Fun!')
 } else if (currentLanguage == "fr") {
 alphabet=fr;
-changeTitle('Fun ABC')
+changeTitle('Fun ABC!')
 } else if (currentLanguage == "es") {
 alphabet=es
-changeTitle('Diversión ABC')
+changeTitle('Diversión ABC!')
 } else if (currentLanguage == "de") {
 alphabet=de;
-changeTitle('ABC Spaß')
+changeTitle('ABC Spaß!')
 } else if (currentLanguage == "ar") {
 alphabet=ar;
-changeTitle('مرح ا ب ت')
+changeTitle('!مرح ا ب ت')
 //window.addEventListener("orientationchange", checkOrientation);
 } else if (currentLanguage == "vn") {
 alphabet=vn;
