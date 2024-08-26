@@ -184,6 +184,7 @@ let vn = ['A', 'À', 'Á', 'Ả', 'Ã', 'Ạ','Â', 'Ầ', 'Ấ', 'Ẩ', 'Ẫ', 
 
 function changeTitle(newTitle) {
   document.title = newTitle;
+document.header = newTitle;
 }
 
 
