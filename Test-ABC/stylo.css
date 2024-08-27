@@ -1,0 +1,91 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: white;
+    text-align: center;
+    color: black;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    color: black;
+    
+}
+
+h1 {
+    font-size: 45px;
+    font-weight: bold;
+}
+
+button {
+    border: none;
+    color: black;
+    padding: 15px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+    margin: 10px;
+    cursor: pointer;
+    background-color: white;
+
+*}
+
+.letter-row {
+    display: flex;
+    justify-content: center;
+    margin: 10px 0;
+}
+
+img {
+    width: 50px;
+    height: auto;
+}
+
+.styled-text {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 70px;
+    font-weight: bold;
+    color: red;
+    text-shadow: 0 0 5px black;
+}
+
+        .answer-button {
+            font-family: 'Open Sans', sans-serif;
+            font-size: 70px; 
+            /*font-weight: bold;*/
+            color: red;
+            text-shadow: 0 0 7px black;
+            background: none;
+            border: none;
+            cursor: pointer;
+            margin: 10px;
+            transition: transform 0.3s ease-in-out;
+            display: block;
+            margin: 10px auto;
+            padding: 10px 20px;
+        }
+
+        .move-up {
+            transform: translateY(-10px);
+            margin: 5px;
+            font-size: 80px;
+        }
+
+
+        #loading {
+            display: none;
+            width: 40px;
+            height: 40px;
+            border: 5px solid #f3f3f3;
+            border-top: 5px solid #3498db;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 20px auto;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }

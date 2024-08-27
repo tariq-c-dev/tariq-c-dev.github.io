@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="apple-touch-fullscreen" content="yes" />
+    <link rel="apple-touch-startup-image" href="favicon.png" />
+    <link rel="apple-touch-icon" href="favicon.png" />
+    <link rel="stylesheet" type="text/css" href="stylo.css" media="screen" />
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.png">
+
+    <title>Test ABC</title>
+    <style>
+            #loading {
+            display: none;
+            width: 40px;
+            height: 40px;
+            border: 5px solid #f3f3f3;
+            border-top: 5px solid #3498db;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 20px auto;
+        }
+
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.4);
+            font-size: 60px;
+
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 30%;
+        }
+
+        #start-button {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            font-size: 20px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+
+<body>
+    <h1>Test ABC</h1>
+    
+    <select style="font-size: 20px;" id="language-select">
+        <option value="select">🌐</option>
+        <option value="en">🇬🇧 English</option>
+        <option value="fr">🇫🇷 Français</option>
+        <option value="es">🇪🇸 Español</option>
+        <option value="ar">🇵🇸 العربية</option>
+    </select>
+    
+    <button id="sound-button"></button>
+
+    <div id="loading">load</div>
+
+    <div class="container" id="question-container" style="display: none;">
+        <p id="question-text"></p>
+        <button class="answer-button" onclick="checkAnswer(0)"></button>
+        <button class="answer-button" onclick="checkAnswer(1)"></button>
+        <button class="answer-button" onclick="checkAnswer(2)"></button>
+        <button class="answer-button" onclick="checkAnswer(3)"></button>
+    </div>
+    
+    <button id="start-button">Quiz ▶️</button>
+
+    
+    
+    
+<script>
+const questionContainer = document.getElementById('question-container');
+
+let fois = 0;
+let alphabet;
+
+function decideLang() {
+    fois = 0;
+    if (currentLanguage == "en") {
+        alphabet = en;
+    } else if (currentLanguage == "fr") {
+        alphabet = fr;
+    } else if (currentLanguage == "es") {
+        alphabet = es;
+    } else if (currentLanguage == "ar") {
+        alphabet = ar;
+        console.log('alphabet is in arabic')
+    } else {
+        alert("Device language unsupported. Default to English.");
+        currentLanguage = "en";
+        alphabet = en;
+    }
+}
+
+document.getElementById('language-select').addEventListener('change', () => {
+    if (languageSelect.value != "select") {
+        currentLanguage = document.getElementById('language-select').value;
+        decideLang();
+        console.log('hi')
+            questionContainer.style.display = 'block';
+            correctAnswer = displayQuestion();
+    }
+    console.log('hi')
+    
+});
+
+        const startButton = document.getElementById('start-button');
+
+        startButton.addEventListener('click', function() {
+            questionContainer.style.display = 'block';
+            correctAnswer = displayQuestion(); 
+            startButton.style.visibility = 'hidden';
+        });
+
+        function reappearButton() {
+            startButton.style.visibility = 'visible';
+        }
+        
+        
+</script>
+
+
+
+
+<script src="%D8%A7%D9%85%D8%AA%D8%AD%D8%A7%D9%86.js"></script>
+
+
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <p id="modal-text"></p>
+        </div>
+    </div>
+
+
+    <div class="container" id="buttonContainer"></div>
+</body>
+</html>
