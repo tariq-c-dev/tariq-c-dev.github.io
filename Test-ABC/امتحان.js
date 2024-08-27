@@ -80,6 +80,11 @@ console.log(currentLanguage)
       return correctAnswer;
     }
 
+function playSound(sound) {
+	const audioElement = new Audio(sound);
+	audioElement.play();
+}
+
     let correctAnswer = displayQuestion();
         document.getElementById('sound-button').addEventListener('click', function() {
 speak(correctAnswer);
@@ -88,14 +93,16 @@ speak(correctAnswer);
       if (document.getElementsByClassName('answer-button')[index].textContent === correctAnswer) {
         document.getElementById('modal-text').textContent = '✅';
         showModal();
+	playSound('/sons/correct.mp3')
         setTimeout(() => {
           correctAnswer = displayQuestion();
           hideModal();
         }, 400);
       } else {
         document.getElementById('modal-text').textContent = '❌';
+	playSound('/sons/incorrect.mp3')
+	showModal();
         speak(correctAnswer)
-        showModal();
         setTimeout(() => {
           hideModal();
         }, 600);
