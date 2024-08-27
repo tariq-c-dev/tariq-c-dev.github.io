@@ -93,14 +93,14 @@ speak(correctAnswer);
       if (document.getElementsByClassName('answer-button')[index].textContent === correctAnswer) {
         document.getElementById('modal-text').textContent = '✅';
         showModal();
-	playSound('/sons/correct.mp3')
+	playSound('/Test-ABC/sons/correct.mp3')
         setTimeout(() => {
           correctAnswer = displayQuestion();
           hideModal();
         }, 400);
       } else {
         document.getElementById('modal-text').textContent = '❌';
-	playSound('/sons/incorrect.mp3')
+	playSound('/Test-ABC/sons/incorrect.mp3')
 	showModal();
         speak(correctAnswer)
         setTimeout(() => {
