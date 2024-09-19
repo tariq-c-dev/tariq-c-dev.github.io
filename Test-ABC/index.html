@@ -85,60 +85,6 @@
     <button id="start-button">Quiz ▶️</button>
 
     
-    
-    
-<script>
-const questionContainer = document.getElementById('question-container');
-
-let fois = 0;
-let alphabet;
-
-function decideLang() {
-    fois = 0;
-    if (currentLanguage == "en") {
-        alphabet = en;
-    } else if (currentLanguage == "fr") {
-        alphabet = fr;
-    } else if (currentLanguage == "es") {
-        alphabet = es;
-    } else if (currentLanguage == "ar") {
-        alphabet = ar;
-        console.log('alphabet is in arabic')
-    } else {
-        alert("Device language unsupported. Default to English.");
-        currentLanguage = "en";
-        alphabet = en;
-    }
-}
-
-document.getElementById('language-select').addEventListener('change', () => {
-    if (languageSelect.value != "select") {
-        currentLanguage = document.getElementById('language-select').value;
-        decideLang();
-        console.log('hi')
-            questionContainer.style.display = 'block';
-            correctAnswer = displayQuestion();
-    }
-    console.log('hi')
-    
-});
-
-        const startButton = document.getElementById('start-button');
-
-        startButton.addEventListener('click', function() {
-            questionContainer.style.display = 'block';
-            correctAnswer = displayQuestion(); 
-            startButton.style.visibility = 'hidden';
-        });
-
-        function reappearButton() {
-            startButton.style.visibility = 'visible';
-        }
-        
-        
-</script>
-
-
 
 
 <script src="%D8%A7%D9%85%D8%AA%D8%AD%D8%A7%D9%86.js"></script>
