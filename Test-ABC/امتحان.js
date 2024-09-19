@@ -1,3 +1,51 @@
+const questionContainer = document.getElementById('question-container');
+
+let fois = 0;
+let alphabet;
+
+function decideLang() {
+    fois = 0;
+    if (currentLanguage == "en") {
+        alphabet = en;
+    } else if (currentLanguage == "fr") {
+        alphabet = fr;
+    } else if (currentLanguage == "es") {
+        alphabet = es;
+    } else if (currentLanguage == "ar") {
+        alphabet = ar;
+        console.log('alphabète en arabe')
+    } else {
+        alert("Device language unsupported. Default to English.");
+        currentLanguage = "en";
+        alphabet = en;
+    }
+}
+
+document.getElementById('language-select').addEventListener('change', () => {
+    if (languageSelect.value != "select") {
+        currentLanguage = document.getElementById('language-select').value;
+        decideLang();
+        console.log('hi')
+            questionContainer.style.display = 'block';
+            correctAnswer = displayQuestion();
+    }
+    console.log('hi')
+    
+});
+
+        const startButton = document.getElementById('start-button');
+
+        startButton.addEventListener('click', function() {
+            questionContainer.style.display = 'block';
+            correctAnswer = displayQuestion(); 
+            startButton.style.visibility = 'hidden';
+        });
+
+        function reappearButton() {
+            startButton.style.visibility = 'visible';
+        }
+        
+
 const languageSelect = document.getElementById('language-select');
 const loadingIcon = document.getElementById('loading');
 fois=0
