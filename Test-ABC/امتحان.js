@@ -3,6 +3,11 @@ const questionContainer = document.getElementById('question-container');
 let fois = 0;
 let alphabet;
 
+function changeTitle(newTitle) {
+  document.title = newTitle;
+  document.querySelector('h1').textContent = newTitle;
+}
+
 function decideLang() {
     fois = 0;
     if (currentLanguage == "en") {
@@ -51,10 +56,11 @@ const loadingIcon = document.getElementById('loading');
 fois=0
 let currentLanguage = (navigator.language || navigator.userLanguage).slice(0, 2);
 console.log(currentLanguage);
-  let en = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
+let en = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
 let es = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "Ñ", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
 let fr = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "À", "Â", "Æ", "Ç", "É", "È", "Ê", "Ë", "Î", "Ï", "Ô", "Ù", "Û", "Ü"]
 let de = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'Ä', 'Ö', 'Ü', 'ß'];
+let vn = ['A', 'À', 'Á', 'Ả', 'Ã', 'Ạ','Â', 'Ầ', 'Ấ', 'Ẩ', 'Ẫ', 'Ậ','Ê', 'Ề', 'Ế', 'Ể', 'Ễ', 'Ệ','I', 'Ì', 'Í', 'Ỉ', 'Ĩ', 'Ị','O', 'Ò', 'Ó', 'Ỏ', 'Õ', 'Ọ','Ô', 'Ồ', 'Ố', 'Ổ', 'Ỗ', 'Ộ','Ơ', 'Ờ', 'Ớ', 'Ở', 'Ỡ', 'Ợ','U', 'Ù', 'Ú', 'Ủ', 'Ũ', 'Ụ','Ư', 'Ừ', 'Ứ', 'Ử', 'Ữ', 'Ự','Y', 'Ỳ', 'Ý', 'Ỷ', 'Ỹ', 'Ỵ'];
 let ar = [ "خ", "ح", "ج", "ث", "ت", "ب", "ا", "ص", "ش", "س", "ز", "ر", "ذ", "د", "ق", "ف", "غ", "ع", "ظ", "ط", "ض", "ي", "و", "ه", "ن", "م", "ل", "ك", ];
 
 
@@ -63,16 +69,16 @@ fois=0
 console.log(fois)
 if (currentLanguage == "en") {
 alphabet=en;
+changeTitle('ABC Test!')
 } else if (currentLanguage == "fr") {
 alphabet=fr;
+changeTitle('Test ABC!')
 } else if (currentLanguage == "es") {
 alphabet=es
-} else if (currentLanguage == "de") {
-alphabet=de;
+changeTitle('Prueba ABC!')
 } else if (currentLanguage == "ar") {
 alphabet=ar;
-} else if (currentLanguage == "vn") {
-alphabet=vn;
+changeTitle('!امتحان ا ب ت')
 } else {
 alert("Device language unsupported. Default to English.");
 currentLanguage="en";
@@ -133,34 +139,36 @@ function playSound(sound) {
 	audioElement.play();
 }
 
-    let correctAnswer = displayQuestion();
-        document.getElementById('sound-button').addEventListener('click', function() {
-speak(correctAnswer);
-        });
-    function checkAnswer(index) {
-      if (document.getElementsByClassName('answer-button')[index].textContent === correctAnswer) {
-        document.getElementById('modal-text').textContent = '✅';
-        showModal();
-	playSound('/Test-ABC/sons/correct.mp3')
-        setTimeout(() => {
-          correctAnswer = displayQuestion();
-          hideModal();
-        }, 400);
-      } else {
-        document.getElementById('modal-text').textContent = '❌';
-	playSound('/Test-ABC/sons/incorrect.mp3')
-	showModal();
-        speak(correctAnswer)
-        setTimeout(() => {
-          hideModal();
-        }, 600);
-      }
-    }
+let correctAnswer = displayQuestion;
 
-    function showModal() {
-      document.getElementById('modal').style.display = 'block';
-    }
+document.getElementById('sound-button').addEventListener('click', function() {
+  speak(correctAnswer);
+});
 
-    function hideModal() {
-      document.getElementById('modal').style.display = 'none';
-    }
+function checkAnswer(index) {
+  if (document.getElementsByClassName('answer-button')[index].textContent === correctAnswer) {
+    document.getElementById('modal-text').textContent = '✅';
+    showModal();
+	  playSound('/Test-ABC/sons/correct.mp3')
+    setTimeout(() => {
+      correctAnswer = displayQuestion();
+      hideModal();
+    }, 400);
+  } else {
+    document.getElementById('modal-text').textContent = '❌';
+	  playSound('/Test-ABC/sons/incorrect.mp3')
+	  showModal();
+    speak(correctAnswer)
+      setTimeout(() => {
+      hideModal();
+    }, 600);
+  }
+}
+
+function showModal() {
+  document.getElementById('modal').style.display = 'block';
+}
+
+function hideModal() {
+  document.getElementById('modal').style.display = 'none';
+}

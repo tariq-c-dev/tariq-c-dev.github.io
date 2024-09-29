@@ -172,6 +172,8 @@ function checkOrientation() {
 
         const buttonContainer = document.getElementById('buttonContainer');
         buttonContainer.innerHTML = contentToCopy;
+        changeTitle('!مرح ا ب ت')
+
     }
 
 
@@ -183,40 +185,33 @@ let ar = [ "خ", "ح", "ج", "ث", "ت", "ب", "ا", "ص", "ش", "س", "ز", "ر
 let vn = ['A', 'À', 'Á', 'Ả', 'Ã', 'Ạ','Â', 'Ầ', 'Ấ', 'Ẩ', 'Ẫ', 'Ậ','Ê', 'Ề', 'Ế', 'Ể', 'Ễ', 'Ệ','I', 'Ì', 'Í', 'Ỉ', 'Ĩ', 'Ị','O', 'Ò', 'Ó', 'Ỏ', 'Õ', 'Ọ','Ô', 'Ồ', 'Ố', 'Ổ', 'Ỗ', 'Ộ','Ơ', 'Ờ', 'Ớ', 'Ở', 'Ỡ', 'Ợ','U', 'Ù', 'Ú', 'Ủ', 'Ũ', 'Ụ','Ư', 'Ừ', 'Ứ', 'Ử', 'Ữ', 'Ự','Y', 'Ỳ', 'Ý', 'Ỷ', 'Ỹ', 'Ỵ'];
 
 function changeTitle(newTitle) {
-  document.title = newTitle;
-document.querySelector('h1').textContent = newTitle;
+    document.title = newTitle;
+    document.querySelector('h1').textContent = newTitle;
 }
 
 
 function decideLang() {
-//window.removeEventListener("orientationchange", checkOrientation);
-fois=0
-console.log(fois)
-if (currentLanguage == "en") {
-alphabet=en;
-changeTitle('ABC Fun!')
-} else if (currentLanguage == "fr") {
-alphabet=fr;
-changeTitle('Fun ABC!')
-} else if (currentLanguage == "es") {
-alphabet=es
-changeTitle('Diversión ABC!')
-} else if (currentLanguage == "de") {
-alphabet=de;
-changeTitle('ABC Spaß!')
-} else if (currentLanguage == "ar") {
-alphabet=ar;
-changeTitle('!مرح ا ب ت')
-//window.addEventListener("orientationchange", checkOrientation);
-} else if (currentLanguage == "vn") {
-alphabet=vn;
-} else {
-alert("Device language unsupported. Default to English.");
-currentLanguage="en";
-alphabet=en;
+    fois=0
+    console.log(fois)
+    if (currentLanguage == "en") {
+        alphabet=en;
+        changeTitle('ABC Fun!')
+    } else if (currentLanguage == "fr") {
+        alphabet=fr;
+        changeTitle('Fun ABC!')
+    } else if (currentLanguage == "es") {
+        alphabet=es
+        changeTitle('Diversión ABC!')
+    } else if (currentLanguage == "ar") {
+        alphabet=ar;
+        changeTitle('!مرح ا ب ت')
+    } else {
+        alert("Device language unsupported. Default English.");
+        currentLanguage="en";
+        alphabet=en;
+    }
 }
 
-}
 decideLang()
 
 
