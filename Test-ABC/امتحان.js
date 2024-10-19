@@ -3,28 +3,37 @@ const questionContainer = document.getElementById('question-container');
 let fois = 0;
 let alphabet;
 
+var questionsCorrect = localStorage.getItem('questionsCorrect');
+var questionsIncorrect = localStorage.getItem('questionsIncorrect');
+console.log(questionsCorrect);
+if (questionsCorrect === null || questionsCorrect == 0) {
+  questionsCorrect = 0;
+  questionsIncorrect = 0;
+  localStorage.setItem('questionsIncorrect', questionsIncorrect);
+  localStorage.setItem('questionsCorrect', questionsCorrect);
+  document.getElementById("élémentPourcentage").innerText = "%";
+} else {
+  total = parseInt(localStorage.getItem('questionsIncorrect'))+parseInt(localStorage.getItem('questionsCorrect'));
+  PourcentageCorrect = 100*(localStorage.getItem('questionsCorrect')/total);
+  document.getElementById("élémentPourcentage").innerText = parseInt(PourcentageCorrect) + "% ✅";
+}
+
+console.log(questionsCorrect);
+
+
+document.getElementById('élémentIncorrect').textContent = "❌: " + questionsIncorrect;
+document.getElementById('élémentCorrect').textContent = "✅: " + questionsCorrect;
+localStorage.setItem('questionsCorrect', questionsCorrect++);
+localStorage.setItem('questionsIncorrect', questionsIncorrect++);
+
+
 function changeTitle(newTitle) {
   document.title = newTitle;
   document.querySelector('h1').textContent = newTitle;
+  //document.getElementById('start-button').textContent = nouvelleBouton;
 }
 
-function decideLang() {
-    fois = 0;
-    if (currentLanguage == "en") {
-        alphabet = en;
-    } else if (currentLanguage == "fr") {
-        alphabet = fr;
-    } else if (currentLanguage == "es") {
-        alphabet = es;
-    } else if (currentLanguage == "ar") {
-        alphabet = ar;
-        console.log('alphabète en arabe')
-    } else {
-        alert("Device language unsupported. Default to English.");
-        currentLanguage = "en";
-        alphabet = en;
-    }
-}
+
 
 document.getElementById('language-select').addEventListener('change', () => {
     if (languageSelect.value != "select") {
@@ -38,17 +47,17 @@ document.getElementById('language-select').addEventListener('change', () => {
     
 });
 
-        const startButton = document.getElementById('start-button');
+const startButton = document.getElementById('start-button');
 
-        startButton.addEventListener('click', function() {
-            questionContainer.style.display = 'block';
-            correctAnswer = displayQuestion(); 
-            startButton.style.visibility = 'hidden';
-        });
+startButton.addEventListener('click', function() {
+  questionContainer.style.display = 'block';
+  correctAnswer = displayQuestion(); 
+  startButton.style.visibility = 'hidden';
+});
 
-        function reappearButton() {
-            startButton.style.visibility = 'visible';
-        }
+function reappearButton() {
+  startButton.style.visibility = 'visible';
+}
         
 
 const languageSelect = document.getElementById('language-select');
@@ -65,74 +74,65 @@ let ar = [ "خ", "ح", "ج", "ث", "ت", "ب", "ا", "ص", "ش", "س", "ز", "ر
 
 
 function decideLang() {
-fois=0
-console.log(fois)
-if (currentLanguage == "en") {
-alphabet=en;
-changeTitle('ABC Test!')
-} else if (currentLanguage == "fr") {
-alphabet=fr;
-changeTitle('Test ABC!')
-} else if (currentLanguage == "es") {
-alphabet=es
-changeTitle('Prueba ABC!')
-} else if (currentLanguage == "ar") {
-alphabet=ar;
-changeTitle('!امتحان ا ب ت')
-} else {
-alert("Device language unsupported. Default to English.");
-currentLanguage="en";
-alphabet=en;
-}
+  fois=0
+  console.log(fois)
+  if (currentLanguage == "en") {
+    alphabet=en;
+    changeTitle('ABC Test!')
+  } else if (currentLanguage == "fr") {
+    alphabet=fr;
+    changeTitle('Test ABC!')
+  } else if (currentLanguage == "es") {
+    alphabet=es
+    changeTitle('Prueba ABC!')
+  } else if (currentLanguage == "ar") {
+    alphabet=ar;
+    changeTitle('!امتحان ا ب ت')
+  } else {
+    alert("Device language unsupported. Default to English.");
+    currentLanguage="en";
+    alphabet=en;
+  }
 }
 decideLang()
 
 function speak(text) {
     const utterance = new SpeechSynthesisUtterance(text.toLowerCase());
-
-    utterance.lang=currentLanguage
-
-
+    utterance.lang=currentLanguage;
     speechSynthesis.speak(utterance);
-
 }
 
 languageSelect.addEventListener('change', () => {
-if (languageSelect.value != "select") {
-	currentLanguage = languageSelect.value;
-console.log(currentLanguage)
+  if (languageSelect.value != "select") {
+	  currentLanguage = languageSelect.value;
+    console.log(currentLanguage)
 	}
 });
 
+function getRandomString() {
+  const index = Math.floor(Math.random() * alphabet.length);
+  return alphabet[index];
+}
 
-
-
-    function getRandomString() {
-      const index = Math.floor(Math.random() * alphabet.length);
-      return alphabet[index];
-    }
-
-    function displayQuestion() {
-      const correctIndex = Math.floor(Math.random() * 4);
-      const answers = [];
-      for (let i = 0; i < 4; i++) {
-        let answer;
-        do {
-          answer = getRandomString();
-        } while (answers.includes(answer));
-        answers.push(answer);
-      }
-
-      const correctAnswer = answers[correctIndex];
-      console.log(correctAnswer);
-      speak(correctAnswer)
-      document.getElementById('sound-button').textContent = `🔊`;
-      for (let i = 0; i < 4; i++) {
-        document.getElementsByClassName('answer-button')[i].textContent = answers[i];
-      }
-
-      return correctAnswer;
-    }
+function displayQuestion() {
+  const correctIndex = Math.floor(Math.random() * 4);
+  const answers = [];
+  for (let i = 0; i < 4; i++) {
+    let answer;
+    do {
+      answer = getRandomString();
+    } while (answers.includes(answer));
+      answers.push(answer);
+  }
+  const correctAnswer = answers[correctIndex];
+  console.log(correctAnswer);
+  speak(correctAnswer)
+  document.getElementById('sound-button').textContent = `🔊`;
+  for (let i = 0; i < 4; i++) {
+    document.getElementsByClassName('answer-button')[i].textContent = answers[i];
+  }
+  return correctAnswer;
+}
 
 function playSound(sound) {
 	const audioElement = new Audio(sound);
@@ -147,22 +147,29 @@ document.getElementById('sound-button').addEventListener('click', function() {
 
 function checkAnswer(index) {
   if (document.getElementsByClassName('answer-button')[index].textContent === correctAnswer) {
+    playSound('/Test-ABC/sons/correct.mp3')
+    localStorage.setItem('questionsCorrect', questionsCorrect++);
+    document.getElementById('élémentCorrect').textContent = "✅: " + localStorage.getItem('questionsCorrect');
     document.getElementById('modal-text').textContent = '✅';
     showModal();
-	  playSound('/Test-ABC/sons/correct.mp3')
     setTimeout(() => {
       correctAnswer = displayQuestion();
       hideModal();
     }, 400);
   } else {
-    document.getElementById('modal-text').textContent = '❌';
 	  playSound('/Test-ABC/sons/incorrect.mp3')
-	  showModal();
+    localStorage.setItem('questionsIncorrect', questionsIncorrect++);
+    document.getElementById('élémentIncorrect').textContent = "❌: " + localStorage.getItem('questionsIncorrect');
+    document.getElementById('modal-text').textContent = '❌';
+    showModal();
     speak(correctAnswer)
       setTimeout(() => {
       hideModal();
     }, 600);
   }
+  total = parseInt(localStorage.getItem('questionsIncorrect'))+parseInt(localStorage.getItem('questionsCorrect'));
+  PourcentageCorrect = 100*(localStorage.getItem('questionsCorrect')/total);
+  document.getElementById("élémentPourcentage").innerText = parseInt(PourcentageCorrect) + "% ✅";
 }
 
 function showModal() {
