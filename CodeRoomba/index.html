@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html manifest="cacheprincipal.manifest">
+<head>
+    <meta charset="UTF-8">
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="/%D8%B3%D9%92%D8%AA%D9%90%D9%8A%D9%84%D9%8F%D9%88.css" media="screen" />
+
+    <title>سيت انترنت طارق</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.10.0/styles/default.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.10.0/highlight.min.js"></script>
+    <!-- and it's easy to individually load additional languages -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.10.0/languages/python.min.js"></script>
+
+</head>
+<body>
+
+<header>
+    <h1>برمجيات للروبوت تنظيف رومبا</h1>
+</header>
+
+
+<p style="text-align: center; font-size: 40px" > </p>
+
+<div style="text-align: center; font-size: 20px;">PyRoombaAdapter كل البرمجيات هنا يحتاج على البايثون و </div>
+
+<p style="text-align: center; font-size: 15px" >
+<a style="align-items: center; font-size: 15px" target="_blank" href="https://www.python.org/downloads/">Python Download</a>
+<p style="text-align: center; font-size: 15px" >
+<a style="align-items: center; font-size: 15px" target="_blank" href="https://pypi.org/project/pyroombaadapter/">PyRoombaAdapter Download</a>
+<p style="text-align: center; font-size: 15px" >
+
+<div style="text-align: center; font-size: 20px;">
+    ↓ شغل الموسيقة
+</div>
+
+<div id="codeMusikaDiv">
+<pre><code class="language-python">Chargement...</code></pre>
+</div>
+
+
+<div style="text-align: center; font-size: 20px;">
+    ↓ وصل الرومبا مع اللوحة المفتيح
+</div>
+
+<div id="codeConduireDiv">
+    <pre><code class="language-python">Chargement...</code></pre> 
+</div>
+
+
+<div style="text-align: center; font-size: 20px;">
+    ↓ وصل الرومبا مع صفحة انترنت
+</div>
+
+<div id="codeWebDiv">
+<pre><code class="language-python">Chargement...</code></pre>
+</div>
+
+<div style="text-align: center; font-size: 20px;">↓ فيديوهات</div>
+<p style="text-align: center; font-size: 20px" >
+
+<video style="align-items: center;" controls width="250"><source src="/images/MusikaRoomba.mp4" type="video/mp4" /></video>
+<video style="align-items: center;" controls width="250"><source src="/images/conduire.webm" type="video/webm" /></video>
+<p style="text-align: center; font-size: 20px" >
+
+<script>
+    async function montrerLesFichiers(lien, élément) {
+            const fichier = await fetch(lien);
+            if (!fichier.ok) {
+                document.getElementById(élément).innerHTML = `<pre>ماكاين برجمة هنا</pre>`;
+                throw new Error('ماكاين برجمة هنا');
+            } else {
+                const textDuFichier = await fichier.text();
+                document.getElementById(élément).innerHTML = `<pre><code class="language-python">${textDuFichier}</code></pre>`;
+                hljs.highlightAll();
+            }
+    }
+    //window.onload = 
+
+    window.onload = montrerLesFichiers('/CodeRoomba/StreamlitServ.py', 'codeWebDiv');
+    window.onload = montrerLesFichiers('/CodeRoomba/ControleParClavier.py', 'codeConduireDiv')
+    window.onload = montrerLesFichiers('/CodeRoomba/musika.py', 'codeMusikaDiv')
+
+</script>
+
+
+
+<footer>
+    <p>السيت انترنت طارق</p>
+    <a href="/">الدار السيت</a>
+</footer>
+
+</body>
+</html>

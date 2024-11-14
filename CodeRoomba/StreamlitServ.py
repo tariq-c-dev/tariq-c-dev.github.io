@@ -39,10 +39,10 @@ with controls:
     if st.button('⬆️  Move forward'):
         adapter.send_drive_direct(speed, speed)
 
-    if st.button('⬅️  Move left'):
+    if st.button('⬅️ Turn left'):
         adapter.move(0, math.radians(20))
 
-    if st.button('➡️  Move right'):
+    if st.button('➡️ Turn right'):
         adapter.move(0, math.radians(-50))
 
     if st.button('⬇️  Move back'):
@@ -62,8 +62,3 @@ with videos:
     st.caption(distance)
     st.caption(adapter.request_voltage())
     col1, col2 = st.columns(2)
-
-
-    st.write(""" <style> .scaled-iframe-wrapper { width: 800px; height: 600px; } .scaled-iframe-wrapper iframe { transform: scale(2); transform-origin: 0 0; } </style> <div class="scaled-iframe-wrapper"> <iframe src="http://10.0.0.196:8081/"></iframe></div> """, unsafe_allow_html=True,)
-
-
