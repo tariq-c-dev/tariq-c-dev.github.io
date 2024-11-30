@@ -2,7 +2,7 @@
 <html>
 <head>
     <title>printing...</title>
-    <link rel="icon" type="image/png" href="/favicon.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="/images/card/favicon.png" sizes="32x32">
     <style>
         body {
             background: black;
@@ -35,7 +35,7 @@
         var leftPosition = 0;
         var intervalId = setInterval(function() {
             if (counter === 25) {
-                document.getElementById("text").innerHTML = '<img src="/art.gif" alt="3D Printer GIF" style="margin: 20px; display: block; max-width: calc(100% - 40px);" loop> <button style="font-size: 20px; padding: 15px 30px; width: 200px;" onclick=location.href="/3.html">Continue</button>';
+                document.getElementById("text").innerHTML = '<img src="/images/card/art.gif" alt="3D Printer GIF" style="margin: 20px; display: block; max-width: calc(100% - 40px);" loop> <button style="font-size: 20px; padding: 15px 30px; width: 200px;" onclick=location.href="/images/card/3.html">Continue</button>';
                 document.getElementById('marquee').remove();
                 clearInterval(intervalId);
             } else {
