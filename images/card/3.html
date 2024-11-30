@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+    <meta charset="UTF-8">
+
+    <link rel="icon" type="image/png" href="/favicon.png" sizes="32x32">
+
+    <style>
+        * {
+        font-size: xx-large;
+
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+            margin: 0;
+            background-color: #fff;
+            font-family: sans-serif;
+            font-size: xx-large;
+        }
+        #text {
+            position: relative;
+            font-size: xx-large;
+            animation: slide 2s infinite;
+            padding-right: 5%;
+            padding-left: 5%;
+            text-align:center;
+        }
+        
+        @keyframes slide {
+            0% { transform: translateX(0); }
+            25% { transform: translateX(10px); }
+            50% { transform: translateX(0); }
+            75% { transform: translateY(10px); }
+            100% { transform: translateY(0); }
+        }
+    </style>
+<body>
+    <p style="position: relative; font-size: xx-large; padding-right: 20%; padding-left: 30px;">I appreciate the gift very much; 1000 thanks for the thought and kindness!</p>
+
+    <img src="printer1.gif" style="animation: play 0.1s steps(1) infinite; width: 100px; height: auto; position:fixed; bottom:0; left:0; width:100%; height:auto; max-height:20vh; object-fit:contain;" />
+
+    <div id="text">
+        <body>
+            <div id="colored-heading"></div>
+            <script>
+            const words = [ "متشکرم", "Cảm ơn", "Merci", "شكراً", "አመሰግናለሁ", "Gracias", "Dziękuję", "ⵜⴰⵏⴻⵎⵎⵉⵔⵜ", "Terima kasih", "Tack", "Köszönöm", "谢谢", "Děkuji", "Danke", "Grazie", "ありがとう", "Obrigado"], colors = ["red", "blue", "green", "orange", "purple", "pink", "brown", "cyan"]; 
+            words.forEach((word, i) => { const div = document.createElement("marquee"); 
+            div.setAttribute("behavior", "scroll");
+            div.setAttribute("direction", "left");
+            div.setAttribute("scrollamount", "35");
+            div.textContent = word; 
+            div.style.color = colors[i % colors.length]; 
+            document.getElementById("colored-heading").appendChild(div); });
+            </script>
+        </body>
+        <p></p>
+    <div>    
+        <p> </p>
+    </div>
+</div>
+
+
+</body>
+</html>
