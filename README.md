@@ -6,4 +6,3 @@
 
 [Repos](https://github.com/tariq-c-dev?tab=repositories)
 
-[ABC iPhone](https://testflight.apple.com/join/kaZCEkkj)
